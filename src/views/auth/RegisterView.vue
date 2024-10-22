@@ -1,87 +1,72 @@
 <script setup>
-import { ref } from 'vue'
+import AppLayout from '@/components/layout/AppLayout.vue'
+import { useDisplay } from 'vuetify'
 
-const theme = ref('light')
-
-function onClick() {
-  theme.value = theme.value === 'light' ? 'dark' : 'light'
-}
+const { mobile } = useDisplay()
 </script>
 
 <template>
-  <v-responsive class="border rounded">
-    <v-app :theme="theme">
-      <v-app-bar class="px-3">
-        <v-spacer></v-spacer>
-
-        <v-btn
-          :prepend-icon="
-            theme === 'light' ? 'mdi-weather-sunny' : 'mdi-weather-night'
-          "
-          text="Toggle Theme"
-          slim
-          @click="onClick"
-        ></v-btn>
-      </v-app-bar>
-
-      <v-main>
-        <v-container>
-          <v-row class="d-flex justify-center">
-            <v-col cols="12" md="6">
-              <v-card
+  <AppLayout>
+    <template #content>
+      <v-row class="d-flex justify-center">
+        <v-col cols="12" md="6">
+          <v-card
+            class="mx-auto"
+            variant="outlined"
+            elevation="20"
+            image="/images/bg-card-favicon.jfif"
+          >
+            <v-card-title class="text-center">
+              <v-img
                 class="mx-auto"
-                prepend-icon="mdi-account-box-plus-outline"
-                subtitle="Register Form"
-                variant="outlined"
-                elevation="20"
-              >
-                <template v-slot:title>
-                  <span class="font-weight-black"
-                    >Welcome to Lost and Found</span
-                  >
-                </template>
+                src="/images/logo-favicon.png"
+                :width="mobile ? '75%' : '25%'"
+              ></v-img>
+              <h3 class="font-weight-black">Welcome to Lost and Found</h3>
+              <p class="font-weight-bold">Registration Form</p>
+            </v-card-title>
 
-                <v-card-text class="bg-surface-light pt-4">
-                  <v-form fast-fail @submit.prevent>
-                    <v-text-field
-                      label="First name"
-                      variant="outlined"
-                    ></v-text-field>
-                    <v-text-field
-                      label="Last name"
-                      variant="outlined"
-                    ></v-text-field>
+            <v-card-text class="bg-surface-light pt-4">
+              <v-form fast-fail @submit.prevent>
+                <v-text-field
+                  label="First name"
+                  variant="outlined"
+                ></v-text-field>
+                <v-text-field
+                  label="Last name"
+                  variant="outlined"
+                ></v-text-field>
 
-                    <v-text-field
-                      label="Email"
-                      variant="outlined"
-                    ></v-text-field>
-                    <v-text-field
-                      label="Password"
-                      variant="outlined"
-                      type="password"
-                    ></v-text-field>
-                    <v-text-field
-                      label="Password Confirmation"
-                      variant="outlined"
-                      type="password"
-                    ></v-text-field>
-                    <v-btn class="mt-2" type="submit" block>Submit</v-btn>
-                    <v-divider class="my-4"></v-divider>
-                    <h5 class="text-center">
-                      Already have account? Click here to
-                      <router-link to="/login" class="text-primary">
-                        Login
-                      </router-link>
-                    </h5>
-                  </v-form>
-                </v-card-text>
-              </v-card>
-            </v-col>
-          </v-row>
-        </v-container>
-      </v-main>
-      <v-footer border app>Copyright All Rights Reserve</v-footer>
-    </v-app>
-  </v-responsive>
+                <v-text-field label="Email" variant="outlined"></v-text-field>
+                <v-text-field
+                  label="Password"
+                  variant="outlined"
+                  type="password"
+                ></v-text-field>
+                <v-text-field
+                  label="Password Confirmation"
+                  variant="outlined"
+                  type="password"
+                ></v-text-field>
+                <v-btn
+                  class="mt-2 bg-primary"
+                  type="submit"
+                  block
+                  prepend-icon="mdi-account-plus-outline"
+                  >Register</v-btn
+                >
+                <v-divider class="my-4"></v-divider>
+                <h5 class="text-center">
+                  Already have account? Click here to
+                  <router-link to="/login" class="text-primary">
+                    Login
+                  </router-link>
+                </h5>
+              </v-form>
+            </v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
+    </template>
+  </AppLayout>
 </template>
