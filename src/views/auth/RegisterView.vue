@@ -30,9 +30,8 @@ function onClick() {
             <v-col cols="12" md="6">
               <v-card
                 class="mx-auto"
-                prepend-icon="mdi-login"
-                subtitle="Login Form"
-                image="/images/bg-card-favicon.jfif"
+                prepend-icon="mdi-account-box-plus-outline"
+                subtitle="Register Form"
                 variant="outlined"
                 elevation="20"
               >
@@ -45,7 +44,16 @@ function onClick() {
                 <v-card-text class="bg-surface-light pt-4">
                   <v-form fast-fail @submit.prevent>
                     <v-text-field
-                      label="Username"
+                      label="First name"
+                      variant="outlined"
+                    ></v-text-field>
+                    <v-text-field
+                      label="Last name"
+                      variant="outlined"
+                    ></v-text-field>
+
+                    <v-text-field
+                      label="Email"
                       variant="outlined"
                     ></v-text-field>
                     <v-text-field
@@ -53,17 +61,20 @@ function onClick() {
                       variant="outlined"
                       type="password"
                     ></v-text-field>
-
+                    <v-text-field
+                      label="Password Confirmation"
+                      variant="outlined"
+                      type="password"
+                    ></v-text-field>
                     <v-btn class="mt-2" type="submit" block>Submit</v-btn>
+                    <v-divider class="my-4"></v-divider>
+                    <h5 class="text-center">
+                      Already have account? Click here to
+                      <router-link to="/login" class="text-primary">
+                        Login
+                      </router-link>
+                    </h5>
                   </v-form>
-
-                  <v-divider class="my-4"></v-divider>
-                  <h5 class="text-center">
-                    Don't have account? Click here to
-                    <router-link to="/register" class="text-primary">
-                      Register
-                    </router-link>
-                  </h5>
                 </v-card-text>
               </v-card>
             </v-col>
