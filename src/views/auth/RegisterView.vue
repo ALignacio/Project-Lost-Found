@@ -13,7 +13,6 @@ const { mobile } = useDisplay()
         <v-col cols="12" md="6">
           <v-card
             class="mx-auto"
-            variant="outlined"
             elevation="20"
             image="/images/bg-card-favicon.jfif"
           >

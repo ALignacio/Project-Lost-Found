@@ -14,7 +14,6 @@ const { mobile } = useDisplay()
           <v-card
             class="mx-auto"
             image="/images/bg-card-favicon.jfif"
-            variant="outlined"
             elevation="20"
           >
             <v-card-title class="text-center">
